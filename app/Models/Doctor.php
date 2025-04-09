@@ -9,17 +9,19 @@ class Doctor extends Model
 {
     use Translatable;
 
-    protected $fillable = [
-        'email',
-        'email_verified_at',
-        'password',
-        'phone',
-        'price',
-        'name',
-        'appointments',
-    ];
+    protected $guarded = [] ;
     public $translatedAttributes = ['name','appointments'];
 
 
     use HasFactory;
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
+    }
 }

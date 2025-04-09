@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SectionTranslation extends Model
 {
-    protected $fillable = [
-        'name',
-    ];
+
+    protected $guarded = [];
     public $timestamps = false;
     use HasFactory;
 }
